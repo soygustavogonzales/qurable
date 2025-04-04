@@ -149,3 +149,4 @@ For support, email support@example.com or open an issue in the repository.
 - NestJS team for the amazing framework
 - TypeORM for the excellent ORM
 - Redis for the powerful caching solution
+- DBMS related to PostgreSQL
