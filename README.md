@@ -2,7 +2,7 @@
 
 A robust coupon management system built with NestJS, PostgreSQL, and Redis, designed to handle coupon creation, assignment, locking, and redemption processes.
 
-![System Architecture](system-design-architecture.drawio.png)
+![System Architecture](docs/images/system-design-architecture.drawio.png)
 
 ## Features
 
