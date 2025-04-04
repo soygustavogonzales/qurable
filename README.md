@@ -18,13 +18,11 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 - **Cache**: Redis
 - **ORM**: TypeORM
 - **API Documentation**: Swagger
-- **Containerization**: Docker
 - **Cloud Platform**: AWS
 
 ## Prerequisites
 
 - Node.js (v18 or higher)
-- Docker and Docker Compose
 - PostgreSQL
 - Redis
 
@@ -33,7 +31,7 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd coupon
+cd coupon-management
 ```
 
 2. Install dependencies:
@@ -52,17 +50,12 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 ```
 
-4. Start the services using Docker Compose:
-```bash
-docker-compose up -d
-```
-
-5. Run database migrations:
+4. Run database migrations:
 ```bash
 npm run migration:run
 ```
 
-6. Start the development server:
+5. Start the development server:
 ```bash
 npm run start:dev
 ```
@@ -99,13 +92,6 @@ npm test
 Run e2e tests:
 ```bash
 npm run test:e2e
-```
-
-## Docker Deployment
-
-Build and run the application using Docker:
-```bash
-docker-compose up --build
 ```
 
 ## AWS Deployment
