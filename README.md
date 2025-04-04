@@ -2,6 +2,8 @@
 
 A robust coupon management system built with NestJS, PostgreSQL, and Redis, designed to handle coupon creation, assignment, locking, and redemption processes.
 
+![System Architecture](system-design-architecture.drawio.png)
+
 ## Features
 
 - 🎫 Create and manage coupon books
@@ -30,8 +32,8 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd coupon-management
+git clone <https://github.com/soygustavogonzales/qurable>
+cd coupon
 ```
 
 2. Install dependencies:
@@ -150,3 +152,4 @@ For support, email support@example.com or open an issue in the repository.
 - TypeORM for the excellent ORM
 - Redis for the powerful caching solution
 - DBMS related to PostgreSQL
+
