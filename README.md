@@ -13,6 +13,15 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 - 💰 Redeem coupons
 - 📊 Track coupon usage and statistics
 
+## Postman Evidences
+
+![postman1](docs/images/postman1.png)
+![postman2](docs/images/postman2.png)
+![postman3](docs/images/postman3.png)
+![postman4](docs/images/postman4.png)
+![postman5](docs/images/postman5.png)
+
+
 ## Tech Stack
 
 - **Backend Framework**: NestJS
