@@ -18,8 +18,8 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 ![postman3](docs/images/postman3.png)
 ![postman4](docs/images/postman4.png)
 ![postman5](docs/images/postman5.png)
-![postman1](docs/images/postman1.png)
 ![postman2](docs/images/postman2.png)
+![postman1](docs/images/postman1.png)
 
 
 ## Tech Stack
