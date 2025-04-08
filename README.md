@@ -31,6 +31,7 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 - 💰 Redeem coupons
 - 📊 Track coupon usage and statistics
 
+## Service Method Flows
 ### 1. uploadCodes
 ```mermaid
 sequenceDiagram
@@ -302,10 +303,6 @@ For support, email support@example.com or open an issue in the repository.
 - TypeORM for the excellent ORM
 - Redis for the powerful caching solution
 - DBMS related to PostgreSQL
-
-## Service Method Flows
-
-
 
 ## Hashtags
 #coupon-management #nestjs #postgresql #redis #typescript #api #backend #microservices #aws #docker #swagger #typeorm #rest-api #coupon-system #ecommerce #digital-coupons #promotional-codes #vouchers #discounts #loyalty-program
