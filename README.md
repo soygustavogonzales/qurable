@@ -162,3 +162,129 @@ For support, email support@example.com or open an issue in the repository.
 - Redis for the powerful caching solution
 - DBMS related to PostgreSQL
 
+## Service Method Flows
+
+### 1. uploadCodes
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Service
+    participant DB
+    participant Redis
+
+    Client->>Service: uploadCodes(couponBookId, codes)
+    Service->>DB: Find couponBook by ID
+    alt CouponBook not found
+        Service-->>Client: NotFoundException
+    else CouponBook exists
+        Service->>DB: Check for existing codes
+        alt Codes already exist
+            Service-->>Client: ConflictException
+        else No existing codes
+            Service->>DB: Create new coupon codes
+            Service->>DB: Save codes
+            Service-->>Client: Return created codes
+        end
+    end
+```
+
+### 2. assignRandomCouponCode
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Service
+    participant DB
+
+    Client->>Service: assignRandomCouponCode(userId)
+    Service->>DB: Find random unredeemed coupon
+    alt No available coupons
+        Service-->>Client: NotFoundException
+    else Coupon found
+        Service->>DB: Update coupon (assignedTo = userId)
+        Service->>DB: Save coupon
+        Service-->>Client: Return assigned coupon
+    end
+```
+
+### 3. assignSpecificCouponCode
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Service
+    participant DB
+
+    Client->>Service: assignSpecificCouponCode(code, userId)
+    Service->>DB: Find coupon by code
+    alt Coupon not found
+        Service-->>Client: NotFoundException
+    else Coupon found
+        alt Coupon already redeemed
+            Service-->>Client: ConflictException
+        else Coupon available
+            Service->>DB: Update coupon (assignedTo = userId)
+            Service->>DB: Save coupon
+            Service-->>Client: Return assigned coupon
+        end
+    end
+```
+
+### 4. lockCouponCode
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Service
+    participant DB
+    participant Redis
+
+    Client->>Service: lockCouponCode(code, userId)
+    Service->>DB: Find coupon by code
+    alt Coupon not found
+        Service-->>Client: NotFoundException
+    else Coupon found
+        alt Coupon not assigned to user
+            Service-->>Client: ConflictException
+        else Coupon assigned to user
+            Service->>Redis: Check if coupon is locked
+            alt Coupon already locked
+                Service-->>Client: ConflictException
+            else Coupon not locked
+                Service->>Redis: Set lock (5 minutes)
+                Service-->>Client: Return success message
+            end
+        end
+    end
+```
+
+### 5. redeemCouponCode
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Service
+    participant DB
+    participant Redis
+
+    Client->>Service: redeemCouponCode(code, userId)
+    Service->>DB: Find coupon by code
+    alt Coupon not found
+        Service-->>Client: NotFoundException
+    else Coupon found
+        alt Coupon not assigned to user
+            Service-->>Client: ConflictException
+        else Coupon assigned to user
+            alt Coupon already redeemed
+                Service-->>Client: ConflictException
+            else Coupon not redeemed
+                Service->>Redis: Check if coupon is locked
+                alt Coupon not locked
+                    Service-->>Client: ConflictException
+                else Coupon is locked
+                    Service->>DB: Update coupon (isRedeemed = true, redeemedAt = now)
+                    Service->>DB: Save coupon
+                    Service->>Redis: Remove lock
+                    Service-->>Client: Return success message
+                end
+            end
+        end
+    end
+```
+

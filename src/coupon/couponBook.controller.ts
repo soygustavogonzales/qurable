@@ -19,6 +19,7 @@ export class CouponBookController {
     @ApiResponse({ status: 201, description: 'The coupon book has been successfully created.' })
     @ApiResponse({ status: 400, description: 'Bad request.' })
     create(@Body() createCouponBookDto: CreateCouponBookDto) {
+        console.log(createCouponBookDto);
         return this.couponBookService.create(createCouponBookDto);
     }
 
