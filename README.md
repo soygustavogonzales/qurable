@@ -6,7 +6,7 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 
 ## Table of Contents
 - [Features](#features)
-- [Service Method Flows](#service-method-flows)
+- [Pseusocode / Flow Diagram](#service-method-flows)
 - [Postman Evidences](#postman-evidences)
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
