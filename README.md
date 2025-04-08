@@ -4,6 +4,23 @@ A robust coupon management system built with NestJS, PostgreSQL, and Redis, desi
 
 ![System Architecture](docs/images/system-design-architecture.drawio.png)
 
+## Table of Contents
+- [Features](#features)
+- [Postman Evidences](#postman-evidences)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [API Documentation](#api-documentation)
+- [API Endpoints](#api-endpoints)
+- [Testing](#testing)
+- [AWS Deployment](#aws-deployment)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
+- [Acknowledgments](#acknowledgments)
+- [Service Method Flows](#service-method-flows)
+
 ## Features
 
 - 🎫 Create and manage coupon books
@@ -287,4 +304,7 @@ sequenceDiagram
         end
     end
 ```
+
+## Hashtags
+#coupon-management #nestjs #postgresql #redis #typescript #api #backend #microservices #aws #docker #swagger #typeorm #rest-api #coupon-system #ecommerce #digital-coupons #promotional-codes #vouchers #discounts #loyalty-program
 
